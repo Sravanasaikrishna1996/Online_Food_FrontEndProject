@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .payment-form {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .styled-text {
+      color: #007bff;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="payment-form">
+    <h2 class="styled-text">Payment Details</h2>
+    <form>
+      <div class="form-group">
+        <label for="cardNumber">Card Number</label>
+        <input
+          type="text"
+          id="cardNumber"
+          name="cardNumber"
+          [(ngModel)]="cardNumber"
+          placeholder="1234 5678 9012 3456"
+          (input)="onCardNumberInput($event)"
+          pattern="[0-9]*"
+          maxlength="12"
+        />
+      </div>
+      <div class="form-group">
+        <label for="cvv">CVV</label>
+        <input
+          type="text"
+          id="cvv"
+          name="cvv"
+          [(ngModel)]="cvv"
+          placeholder="123"
+          (input)="onCardCVVInput($event)"
+          pattern="[0-9]*"
+          maxlength="3"
+        />
+      </div>
+      <div class="form-group">
+        <label for="expirationMonth">Expiration Month</label>
+        <input
+          type="text"
+          id="expirationMonth"
+          name="expirationMonth"
+          [(ngModel)]="expirationMonth"
+          placeholder="MM/YY"
+          (input)="onCardMonthYear($event)"
+        />
+      </div>
+      <button (click)="processPayment()">Submit Payment</button>
+    </form>
+  </div>
+</body>
+</html>

@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'task';
+  searchTerm: string = '';
+  onSearch() {
+  
+    console.log('Search term:', this.searchTerm);
+
+   
+  }
 }
